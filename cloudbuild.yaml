@@ -1,0 +1,29 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t
+      - gcr.io/$PROJECT_ID/mentora-backend
+      - .
+
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - gcr.io/$PROJECT_ID/mentora-backend
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - mentora-backend
+      - --image=gcr.io/$PROJECT_ID/mentora-backend
+      - --platform=managed
+      - --region=us-central1
+      - --allow-unauthenticated
+      - --port=8080
+      - --timeout=3600
+      - --session-affinity
+
+images:
+  - gcr.io/$PROJECT_ID/mentora-backend
