@@ -1,4 +1,4 @@
-# Mentora — You Personal AI Tutor 
+# Mentora — Your Personal AI Tutor 
 
 ---
 
