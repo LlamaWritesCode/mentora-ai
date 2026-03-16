@@ -4,6 +4,18 @@
 
 ---
 
+## Table of Contents
+
+- [Description](#description)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup & Spin-Up](#setup--spin-up)
+- [Proof of Google Cloud Deployment](#proof-of-google-cloud-deployment)
+- [Architecture Diagram](#architecture-diagram)
+- [Demonstration Video](#demonstration-video)
+
+---
+
 ## Description
 
 ### What is Mentora?
