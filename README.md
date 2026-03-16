@@ -1,4 +1,4 @@
-# Mentora — Hackathon Submission
+# Mentora — You Personal AI Tutor 
 
 ---
 
