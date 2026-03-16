@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Microphone Permission</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #0f0f13;
+      color: #c4b5fd;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      text-align: center;
+      gap: 12px;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    p { margin: 0; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <span style="font-size:2rem">🎤</span>
+  <strong>Microphone Access Required</strong>
+  <p>Click <strong>Allow</strong> when Chrome asks for microphone permission.</p>
+  <script type="module" src="./permission.ts"></script>
+</body>
+</html>
