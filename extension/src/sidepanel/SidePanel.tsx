@@ -19,7 +19,7 @@ interface AgentConfig {
   socraticAutopilot: boolean
 }
 
-const DEFAULT_WS_URL  = 'ws://localhost:8080/ws'
+const DEFAULT_WS_URL  = 'wss://mentora-backend-703396951656.us-central1.run.app/ws'
 const DEFAULT_CONFIG: AgentConfig = {
   tone: 'academic', level: 'intermediate', custom: '', voiceSource: 'mic',
   a2uiEnabled: false, socraticAutopilot: false,

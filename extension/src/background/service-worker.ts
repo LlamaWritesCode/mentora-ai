@@ -63,7 +63,8 @@ async function handleStartSession(wsUrl: string, config?: object): Promise<{ ok:
 function isValidWsUrl(url: string): boolean {
   try {
     const u = new URL(url)
-    return (u.protocol === 'ws:' || u.protocol === 'wss:') && u.hostname === 'localhost'
+    const allowedHosts = ['localhost', 'mentora-backend-703396951656.us-central1.run.app']
+    return (u.protocol === 'ws:' || u.protocol === 'wss:') && allowedHosts.includes(u.hostname)
   } catch {
     return false
   }
