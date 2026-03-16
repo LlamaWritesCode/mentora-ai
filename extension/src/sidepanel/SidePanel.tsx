@@ -199,7 +199,7 @@ function SettingsDrawer({ config, onChange, onClose }: {
           badge="A2UI"
         />
         <Toggle
-          label="Socratic Pilot"
+          label="Autopilot"
           checked={config.socraticAutopilot}
           onChange={v => onChange({ ...config, socraticAutopilot: v })}
           badge="30s hint"
@@ -364,7 +364,7 @@ export default function SidePanel() {
           <span className="text-[10px] bg-[#1e1e1e] text-[#999] px-1.5 py-0.5 rounded font-mono border border-[#2a2a2a]" aria-label="Generative UI enabled">A2UI</span>
         )}
         {config.socraticAutopilot && (
-          <span className="text-[10px] bg-[#1e1e1e] text-[#999] px-1.5 py-0.5 rounded font-mono border border-[#2a2a2a]" aria-label="Socratic Pilot enabled">Socratic</span>
+          <span className="text-[10px] bg-[#1e1e1e] text-[#999] px-1.5 py-0.5 rounded font-mono border border-[#2a2a2a]" aria-label="Autopilot enabled">Autopilot</span>
         )}
         <StatusDot status={status} />
         <span className="text-xs text-[#777]" aria-hidden="true">{statusLabels[status]}</span>

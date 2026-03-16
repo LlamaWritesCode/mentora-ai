@@ -46,7 +46,7 @@ The core idea: most learning tools require you to context-switch. You pause, ope
   - `EquationSolver` — expandable step-by-step math derivations with KaTeX-rendered LaTeX
   - `Flashcard` — flippable term/definition card for new vocabulary
 
-**Socratic Autopilot**
+**Autopilot**
 - Opt-in mode that transforms Mentora from an answer-giver into a Socratic guide
 - Zero-Answer Policy: never gives direct answers, only questions and nudges
 - Vision-Based Scaffolding: references what it literally sees on your screen
@@ -201,6 +201,6 @@ The video (< 4 minutes) covers:
    - Voice question answered in real time with screen context
    - Barge-in mid-response
    - Generative UI: `EquationSolver` widget rendered alongside the spoken explanation
-   - Socratic Autopilot mode triggered after idle period
+   - Autopilot mode triggered after idle period
    - Note saved via voice command and visible in the Notes tab
 3. **The value** — zero friction, zero context-switch, multimodal understanding baked in at the infrastructure level — not bolted on
