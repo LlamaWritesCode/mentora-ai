@@ -2,7 +2,7 @@
 
 ---
 
-## Text Description
+## Description
 
 ### What is Mentora?
 
@@ -178,7 +178,7 @@ Relevant files in the repo:
 │   │  - Widget renderer  │             │                              │
 │   │  - Settings drawer  │      ┌──────▼──────────────────────────┐   │
 │   └─────────────────────┘      │       Service Worker            │   │
-│                                │   (message relay, orchestration) │   │
+│                                │   (message relay, orchestration)│   │
 │                                └──────┬──────────────────────────┘   │
 └───────────────────────────────────────┼──────────────────────────────┘
                                         │
@@ -201,7 +201,7 @@ Relevant files in the repo:
 │   │   LiveRequestQueue            ADK Runner + InMemorySession   │   │
 │   │         │                              │                     │   │
 │   └─────────┼──────────────────────────────┼─────────────────────┘   │
-│             │                              │                          │
+│             │                              │                         │
 │   ┌─────────▼──────────────────────────────▼─────────────────────┐   │
 │   │                   Google ADK Agent                           │   │
 │   │            model: gemini-2.5-flash-native-audio-preview      │   │
@@ -218,12 +218,12 @@ Relevant files in the repo:
                              BIDI streaming (audio I/O)
                                        │
                     ┌──────────────────▼──────────────────┐
-                    │         Google Gemini Live API       │
-                    │   gemini-2.5-flash-native-audio      │
-                    │   - Understands speech natively      │
-                    │   - Generates speech natively        │
-                    │   - Server-side VAD built in         │
-                    │   - Tool calling over live stream    │
+                    │         Google Gemini Live API      │
+                    │   gemini-2.5-flash-native-audio     │
+                    │   - Understands speech natively     │
+                    │   - Generates speech natively       │
+                    │   - Server-side VAD built in        │
+                    │   - Tool calling over live stream   │
                     └─────────────────────────────────────┘
 ```
 
