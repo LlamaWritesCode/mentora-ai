@@ -194,7 +194,7 @@ The Mentora backend is live on **Google Cloud Run** at:
 
 **Video link:** [MentoraAI Demo](https://youtube.com/watch?v=NxDOmTxRC-k&feature=youtu.be)
 
-The video (< 4 minutes) covers:
+The video covers:
 
 1. **The problem** — context-switching kills learning flow; existing AI tools require you to stop, navigate away, type, and wait
 2. **Live demo** — Mentora running in the Chrome side panel while browsing a statistics textbook:
