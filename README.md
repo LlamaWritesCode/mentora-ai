@@ -159,7 +159,7 @@ The Mentora backend is live on **Google Cloud Run** at:
 
 `https://mentora-backend-703396951656.us-central1.run.app`
 
-**Screen recording** — a short recording showing the Cloud Run service dashboard, active revision, and live request logs is included as a separate upload alongside this submission.
+**Screen recording** — [Watch the GCP proof recording on Loom](https://www.loom.com/share/8ff37798210843eba30ef9983d852d30) — shows the Cloud Build pipeline (all 3 steps green), Cloud Run service dashboard, active revision, and live request logs.
 
 **Code reference** — the following files in this repo demonstrate Google Cloud service usage:
 - [`Dockerfile`](Dockerfile) — container definition for the FastAPI backend
