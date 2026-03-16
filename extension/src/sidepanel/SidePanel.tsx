@@ -118,9 +118,9 @@ const NoteCard = memo(function NoteCard({ note, onDelete }: { note: Note; onDele
   )
 })
 
-function SettingsDrawer({ config, wsUrl, onChange, onWsChange, onClose }: {
-  config: AgentConfig; wsUrl: string
-  onChange: (c: AgentConfig) => void; onWsChange: (u: string) => void
+function SettingsDrawer({ config, onChange, onClose }: {
+  config: AgentConfig
+  onChange: (c: AgentConfig) => void
   onClose: () => void
 }) {
   const firstFocusRef = useRef<HTMLButtonElement>(null)
@@ -206,15 +206,6 @@ function SettingsDrawer({ config, wsUrl, onChange, onWsChange, onClose }: {
         />
       </div>
 
-      <div className="flex items-center gap-2">
-        <label htmlFor="setting-wsUrl" className="text-[11px] text-[#999] w-28 flex-shrink-0">Backend URL</label>
-        <input
-          id="setting-wsUrl"
-          value={wsUrl}
-          onChange={e => onWsChange(e.target.value)}
-          className="flex-1 bg-[#0f0f0f] border border-[#282828] rounded px-2 py-1 text-xs font-mono text-[#ccc] outline-none focus:border-[#888]"
-        />
-      </div>
     </div>
   )
 }
@@ -228,7 +219,6 @@ export default function SidePanel() {
   const [activeTab, setActiveTab]       = useState<ActiveTab>('chat')
   const [showSettings, setShowSettings] = useState(false)
   const [config, setConfig]             = useState<AgentConfig>(DEFAULT_CONFIG)
-  const [wsUrl, setWsUrl]               = useState(DEFAULT_WS_URL)
   const [announcement, setAnnouncement] = useState('')
   const chatEnd     = useRef<HTMLDivElement>(null)
   const socraticRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -265,15 +255,14 @@ export default function SidePanel() {
   }, [])
 
   useEffect(() => {
-    chrome.storage.local.get(['wsUrl', 'agentConfig'], (data) => {
-      if (data.wsUrl)       setWsUrl(data.wsUrl)
+    chrome.storage.local.get(['agentConfig'], (data) => {
       if (data.agentConfig) setConfig(data.agentConfig)
     })
   }, [])
 
   useEffect(() => {
-    chrome.storage.local.set({ wsUrl, agentConfig: config })
-  }, [wsUrl, config])
+    chrome.storage.local.set({ agentConfig: config })
+  }, [config])
 
   useEffect(() => {
     if (activeTab === 'chat') chatEnd.current?.scrollIntoView({ behavior: 'smooth' })
@@ -347,12 +336,12 @@ export default function SidePanel() {
       chrome.runtime.sendMessage({ type: 'STOP_SESSION' })
       setSession(false); setStatus('idle')
     } else {
-      chrome.runtime.sendMessage({ type: 'START_SESSION', wsUrl, config }, (response) => {
+      chrome.runtime.sendMessage({ type: 'START_SESSION', wsUrl: DEFAULT_WS_URL, config }, (response) => {
         if (response?.error) { setStatus('error'); addMessage('system', `Failed: ${response.error}`); return }
         setSession(true); setStatus('thinking')
       })
     }
-  }, [sessionActive, wsUrl, config, addMessage])
+  }, [sessionActive, config, addMessage])
 
   const handleSend = useCallback(() => {
     const text = input.trim()
@@ -445,9 +434,8 @@ export default function SidePanel() {
 
       {showSettings && (
         <SettingsDrawer
-          config={config} wsUrl={wsUrl}
+          config={config}
           onChange={c => { setConfig(c); chrome.storage.local.set({ agentConfig: c }) }}
-          onWsChange={u => { setWsUrl(u); chrome.storage.local.set({ wsUrl: u }) }}
           onClose={() => setShowSettings(false)}
         />
       )}
