@@ -180,7 +180,7 @@ The Mentora backend is live on **Google Cloud Run** at:
 
 ## Demonstration Video
 
-**Video link:** `[ADD VIDEO URL HERE]`
+**Video link:** `[Mentora Demo](https://youtube.com/watch?v=NxDOmTxRC-k&feature=youtu.be)`
 
 The video (< 4 minutes) covers:
 
