@@ -232,7 +232,6 @@ The Mentora backend is live on **Google Cloud Run** at:
                     └─────────────────────────────────────┘
 ```
 
-> A high-resolution PNG version of this diagram is included in the image carousel of the submission.
 
 ---
 
