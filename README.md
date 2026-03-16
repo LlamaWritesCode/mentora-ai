@@ -99,25 +99,14 @@ No external datasets or third-party data sources were used. All knowledge comes 
 
 ## Setup & Spin-Up
 
+The backend is deployed on **Google Cloud Run** — no server setup needed to run the app.
+
 ### Prerequisites
 
-- Python 3.11+
 - Node.js 18+
 - Google Chrome (latest)
-- A Google Gemini API key from [Google AI Studio](https://aistudio.google.com)
 
-### 1. Backend
-
-```bash
-cd backend
-pip install -r requirements.txt
-cp mentora_agent/.env.example mentora_agent/.env
-# Open mentora_agent/.env and set GOOGLE_API_KEY=your_key_here
-python main.py
-# Server starts at http://127.0.0.1:8080
-```
-
-### 2. Extension
+### 1. Build the Extension
 
 ```bash
 cd extension
@@ -126,15 +115,33 @@ npm run build
 # Build output: extension/dist/
 ```
 
-### 3. Load in Chrome
+### 2. Load in Chrome
 
 1. Open `chrome://extensions`
 2. Enable **Developer mode** (top right toggle)
 3. Click **Load unpacked**
 4. Select the `extension/dist/` folder
 5. Click the Mentora icon in the toolbar — the side panel opens
+6. Hit **Start Sync** — connects directly to the Cloud Run backend
 
-### Development (hot reload)
+---
+
+### Running Locally (for development)
+
+If you want to run the backend locally instead of Cloud Run:
+
+**Prerequisites:** Python 3.11+, a Gemini API key from [Google AI Studio](https://aistudio.google.com)
+
+```bash
+cd backend
+pip install -r requirements.txt
+cp mentora_agent/.env.example mentora_agent/.env
+# Edit mentora_agent/.env and set GOOGLE_API_KEY=your_key_here
+python main.py
+# Server starts at http://127.0.0.1:8080
+```
+
+Then update `DEFAULT_WS_URL` in `extension/src/sidepanel/SidePanel.tsx` to `ws://localhost:8080/ws`, rebuild, and reload the extension.
 
 ```bash
 # Extension — watch mode
@@ -148,18 +155,16 @@ uvicorn main:app --host 127.0.0.1 --port 8080 --reload
 
 ## Proof of Google Cloud Deployment
 
-The Mentora backend is deployed as a container on **Google Cloud Run** in the `us-central1` region.
+The Mentora backend is live on **Google Cloud Run** at:
 
-**Option 1 — Screen recording**
-A short recording showing the Cloud Run service dashboard, active revision, and live request logs is included as a separate upload alongside this submission.
+`https://mentora-backend-703396951656.us-central1.run.app`
 
-**Option 2 — Code reference**
-The `Dockerfile` and `cloudbuild.yaml` at the root of the repository demonstrate the Cloud deployment configuration. The backend uses the Google ADK which internally calls the **Gemini Live API via Vertex AI endpoints**.
+**Screen recording** — a short recording showing the Cloud Run service dashboard, active revision, and live request logs is included as a separate upload alongside this submission.
 
-Relevant files in the repo:
-- `Dockerfile` — container definition for the FastAPI backend
-- `cloudbuild.yaml` — Cloud Build pipeline (build → push to Artifact Registry → deploy to Cloud Run)
-- `backend/mentora_agent/agent.py` — uses `google-adk` which routes through the Vertex AI / Google AI backend
+**Code reference** — the following files in this repo demonstrate Google Cloud service usage:
+- [`Dockerfile`](Dockerfile) — container definition for the FastAPI backend
+- [`cloudbuild.yaml`](cloudbuild.yaml) — Cloud Build pipeline (build → push to Artifact Registry → deploy to Cloud Run)
+- [`backend/mentora_agent/agent.py`](backend/mentora_agent/agent.py) — uses `google-adk` with `gemini-2.5-flash-native-audio-preview`, calling the Gemini Live API via Google Cloud
 
 ---
 

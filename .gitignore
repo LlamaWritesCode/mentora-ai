@@ -2,9 +2,10 @@
 .DS_Store
 **/.DS_Store
 
-# Handoff / submission docs
+# Handoff / submission / internal docs
 HANDOFF.md
 SUBMISSION.md
+DEMO_SCRIPT.md
 
 # Secrets — never commit
 .env
