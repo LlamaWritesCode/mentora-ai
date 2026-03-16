@@ -172,6 +172,8 @@ The Mentora backend is live on **Google Cloud Run** at:
 
 ## Architecture Diagram
 
+![Mentora Architecture](assets/architecture.png)
+
 ```text
 ┌──────────────────────────────────────────────────────────────────────┐
 │                          User's Chrome Browser                       │
