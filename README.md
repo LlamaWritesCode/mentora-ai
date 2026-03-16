@@ -1,4 +1,6 @@
-# Mentora — Your Personal AI Tutor 
+# Mentora — Your Personal AI Tutor
+
+**[Watch the Demo](https://youtube.com/watch?v=NxDOmTxRC-k&feature=youtu.be)** · **[GCP Proof](https://www.loom.com/share/8ff37798210843eba30ef9983d852d30)**
 
 ---
 
